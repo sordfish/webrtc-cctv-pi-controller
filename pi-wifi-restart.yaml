@@ -8,7 +8,9 @@
   - name: ping google dns
     shell: ping -c 10 8.8.8.8
     changed_when: false
+    register: google_ping
 
   - name: ping local router
     shell: ping -c 10 192.168.1.254
     changed_when: false
+    register: router_ping
