@@ -13,7 +13,7 @@
   - name: start sending video
     shell: "raspivid -a 12 -t 0 -w 1280 -h 720 -hf -ih -fps 30 -o udp://{{ input_address.stdout }}:10000"
     changed_when: false
-    async: 0
+    async: 30
     poll: 0
     register: raspivid_output
 
