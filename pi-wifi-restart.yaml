@@ -6,7 +6,9 @@
 
   tasks:
   - name: ping google dns
-    shell: ping -c 10 8.8.8.8 
+    shell: ping -c 10 8.8.8.8
+    changed_when: false
 
   - name: ping local router
     shell: ping -c 10 192.168.1.254
+    changed_when: false
