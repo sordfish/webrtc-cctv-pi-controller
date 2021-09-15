@@ -9,6 +9,7 @@
     shell: ping -c 10 8.8.8.8
     changed_when: false
     register: google_ping
+    ignore_errors: yes
 
   - name: show google ping output
     debug:
@@ -19,3 +20,9 @@
     shell: ping -c 10 192.168.1.254
     changed_when: false
     register: router_ping
+    ignore_errors: yes
+
+  - name: show router ping output
+    debug:
+      msg: "{{ router_ping }}"
+    changed_when: false
