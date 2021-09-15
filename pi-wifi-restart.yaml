@@ -3,14 +3,10 @@
   hosts: localhost
   remote_user: root
   gather_facts: false
-  vars:
-    ansible_network_os: linux
 
   tasks:
   - name: ping google dns
-    net_ping:
-      dest: 8.8.8.8
+    shell: ping 8.8.8.8
 
   - name: ping local router
-    net_ping:
-      dest: 192.168.1.254
+    shell: ping 192.168.1.254
