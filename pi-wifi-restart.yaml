@@ -2,6 +2,9 @@
 - name: pi wifi restart
   hosts: localhost
   remote_user: root
+  gather_facts: false
+  vars:
+    ansible_network_os: linux
 
   tasks:
   - name: ping google dns
