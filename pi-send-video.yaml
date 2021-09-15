@@ -1,0 +1,22 @@
+---
+- name: pi send video
+  hosts: localhost
+  remote_user: pi
+  gather_facts: false
+
+  tasks:
+  - name: get IP
+    shell: dig camerainput-1.cctv.svc.cluster.local +short
+    changed_when: false
+    register: input_address
+
+  - name: start sending video
+    shell: "raspivid -a 12 -t 0 -w 1280 -h 720 -hf -ih -fps 30 -o udp://{{ input_address.stdout }}:10000"
+    changed_when: false
+    register: raspivid_output
+
+
+  - name: show output
+    debug:
+      msg: "{{ input_address }}\n {{ raspivid_output }}"
+    changed_when: false
